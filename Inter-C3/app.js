@@ -1,7 +1,4 @@
-// URL de la API de Fórmula 1 (Ergast Developer API)
 const API_URL = 'https://ergast.com/api/f1/2023/drivers.json';
-
-// Mapeo de colores de equipos (simplificado)
 const TEAM_COLORS = {
     "Red Bull": "#0600ef",
     "Ferrari": "#e10600",
@@ -15,33 +12,21 @@ const TEAM_COLORS = {
     "Williams": "#005aff"
 };
 
-// Elementos del DOM
 const fetchBtn = document.getElementById('fetch-btn');
 const axiosBtn = document.getElementById('axios-btn');
 const dataContainer = document.getElementById('data-container');
 
-// Función para mostrar los pilotos en el contenedor
 function displayDrivers(drivers) {
-    // Limpiar el contenedor antes de mostrar nuevos datos
     dataContainer.innerHTML = '';
-    
-    // Verificar si hay pilotos
     if (!drivers || drivers.length === 0) {
         dataContainer.innerHTML = '<p class="loading">No se encontraron datos de pilotos.</p>';
         return;
     }
-    
-    // Ordenar pilotos por número
     drivers.sort((a, b) => a.permanentNumber - b.permanentNumber);
-    
-    // Crear una tarjeta para cada piloto
     drivers.forEach(driver => {
         const driverCard = document.createElement('div');
         driverCard.className = 'driver-card';
-        
-        // Obtener color del equipo
         const teamColor = TEAM_COLORS[driver.Constructor.name] || "#cccccc";
-        
         driverCard.innerHTML = `
             <h3>
                 <span class="driver-number">${driver.permanentNumber}</span>
@@ -56,12 +41,9 @@ function displayDrivers(drivers) {
             <p><strong>Código:</strong> ${driver.code || 'N/A'}</p>
             <p><a href="${driver.url}" target="_blank">Más información</a></p>
         `;
-        
         dataContainer.appendChild(driverCard);
     });
 }
-
-// Función para manejar errores
 function handleError(error) {
     console.error('Error:', error);
     dataContainer.innerHTML = `
@@ -70,22 +52,17 @@ function handleError(error) {
         </p>
     `;
 }
-
-// Mostrar estado de carga
 function showLoading() {
     dataContainer.innerHTML = '<p class="loading">Cargando datos...</p>';
 }
 
-// Obtener pilotos con Fetch
 async function getDriversWithFetch() {
     showLoading();
     try {
         const response = await fetch(API_URL);
-        
         if (!response.ok) {
             throw new Error(`Error HTTP! estado: ${response.status}`);
         }
-        
         const data = await response.json();
         const drivers = data.MRData.DriverTable.Drivers.map(driver => {
             return {
@@ -101,7 +78,6 @@ async function getDriversWithFetch() {
     }
 }
 
-// Obtener pilotos con Axios
 async function getDriversWithAxios() {
     showLoading();
     try {
@@ -120,6 +96,5 @@ async function getDriversWithAxios() {
     }
 }
 
-// Event listeners para los botones
 fetchBtn.addEventListener('click', getDriversWithFetch);
 axiosBtn.addEventListener('click', getDriversWithAxios);
