@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adivina el número</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="app">
+    <h1>Adivina el número</h1>
+<div id="game-container">
+    <div id="game-controls">
+      <p>Introduce un número entre 1 y 100:</p>
+      <input type="number" id="guessInput" min="1" max="100">
+      <button id="guessButton">Adivinar</button>
+      <button id="resetButton">Reiniciar</button>
+    </div>
+    <div id="game-info">
+      <p id="message"></p>
+      <p id="attempts">Intentos: 0</p>
+      <p>Intentos restantes: <span id="remainingAttempts">10</span></p>
+    </div>
+    <div id="history">
+      <h3>Historial:</h3>
+      <ul id="historyList"></ul>
+    </div>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

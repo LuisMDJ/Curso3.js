@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro para Evento</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registro para Evento</h1>
+        <form id="registroForm" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Información Personal</legend>
+                <div class="form-group">
+                    <label for="nombre">Nombre completo*</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    <span class="error-message" id="nombreError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico*</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono*</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                    <span class="error-message" id="telefonoError"></span>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Intereses (Selecciona al menos uno)*</legend>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="intereses" value="tecnologia"> Tecnología
+                    </label>
+                    <label>
+                        <input type="checkbox" name="intereses" value="negocios"> Negocios
+                    </label>
+                    <label>
+                        <input type="checkbox" name="intereses" value="marketing"> Marketing
+                    </label>
+                    <label>
+                        <input type="checkbox" name="intereses" value="diseno"> Diseño
+                    </label>
+                </div>
+                <span class="error-message" id="interesesError"></span>
+            </fieldset>
+            <fieldset>
+                <legend>Horario preferido*</legend>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="horario" value="mañana" required> Mañana (9:00 - 12:00)
+                    </label>
+                    <label>
+                        <input type="radio" name="horario" value="tarde"> Tarde (14:00 - 17:00)
+                    </label>
+                    <label>
+                        <input type="radio" name="horario" value="noche"> Noche (18:00 - 21:00)
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Fecha del evento*</legend>
+                <div class="form-group">
+                    <input type="date" id="fecha" name="fecha" required>
+                    <span class="error-message" id="fechaError"></span>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Documento de identificación (Opcional)</legend>
+                <div class="form-group">
+                    <label for="archivo" class="file-label">
+                        <span id="file-name">Seleccionar archivo...</span>
+                        <input type="file" id="archivo" name="archivo" accept=".pdf,.jpg,.jpeg,.png">
+                    </label>
+                    <span class="file-hint">Formatos aceptados: PDF, JPG, PNG (Máx. 2MB)</span>
+                </div>
+            </fieldset>
+            <div class="form-actions">
+                <button type="submit" class="btn-submit">Registrarse</button>
+                <button type="reset" class="btn-reset">Limpiar formulario</button>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

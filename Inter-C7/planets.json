@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Kepler-186f",
+        "discoveryDate": "2014-04-17",
+        "diameter": 16000,
+        "distanceFromSun": 492,
+        "interestingFacts": [
+            "Primer planeta de tamaño similar a la Tierra descubierto en la zona habitable",
+            "Orbita una estrella enana roja"
+        ],
+        "imageUrl": "https://exoplanets.nasa.gov/system/resources/detail_files/331_kepler186f-1600x1200.jpg"
+    },
+    {
+        "id": 2,
+        "name": "HD 209458 b",
+        "discoveryDate": "1999-11-05",
+        "diameter": 178000,
+        "distanceFromSun": 159,
+        "interestingFacts": [
+            "Primer planeta extrasolar descubierto mediante el método de tránsito",
+            "Atmósfera contiene vapor de agua"
+        ],
+        "imageUrl": "https://exoplanets.nasa.gov/system/resources/detail_files/2466_PIA18848-1600x1200.jpg"
+    }
+]
